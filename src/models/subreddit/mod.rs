@@ -266,6 +266,16 @@ impl Subreddit {
         self.get_feed("new", limit, options).await
     }
 
+    /// Get random posts.
+    #[maybe_async::maybe_async]
+    pub async fn random(
+        &self,
+        limit: u32,
+        options: Option<FeedOption>,
+    ) -> Result<Submissions, RouxError> {
+        self.get_feed("random", limit, options).await
+    }
+
     /// Get latest comments.
     #[maybe_async::maybe_async]
     pub async fn latest_comments(
